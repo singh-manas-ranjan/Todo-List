@@ -1,0 +1,126 @@
+.todoContainer{
+    display: grid;
+    /* place-items: center; */
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+    /* height: fit-content; */
+    row-gap: .5rem;
+    width: 420px;
+    /* display: flex;
+    flex-direction: column; */
+    align-items: center;
+    padding: .5rem;
+}
+
+.todoItemsContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+.scrollContainer{
+    max-height: 300px;
+    overflow-y: scroll;
+    display: grid;
+    row-gap: .5rem;
+    padding: .2rem;
+}
+
+.btnGroup{
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.button{
+    all: unset;
+    width: 40%;
+    height: 25px;
+    color: white;
+    padding: .1rem;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+.editBtn{
+    background-color: orangered
+}
+
+.deleteBtn{
+    background-color: rgb(182, 42, 17);
+}
+
+.editBtn:hover{
+    background-color: orange;
+}
+
+.deleteBtn:hover{
+    background-color: tomato;
+}
+
+
+.form{
+    display: grid;
+    gap: .5rem;
+    width: 70%;
+  }
+
+.addTodoGroup{
+    display: flex;
+    gap: .5rem;
+    width: 100%;
+    justify-content: space-around;
+
+}
+
+.addTodoBtn{
+    background-color: darkgreen;
+    border-radius: 8px;
+    height: 32px;
+    width: 80px;
+    color: #fff;
+    border: 0;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+.addTodoBtn:hover{
+    background-color: green;
+}
+
+.todoInput{
+    padding-left: .5rem;
+    border: none;
+    background-color: lightgray;
+    border-radius: 4px;
+    width: 70%;
+}
+
+.searchTodoInput{
+    height: 2.2em;
+    border: none;
+    background-color: lightgray;
+    padding-left: .5rem;
+    border-radius: 4px;
+    margin: .3rem 0 1rem;
+}
+
+.editTodo{
+    border: none;
+    background-color: lightgray;
+    border-radius: 4px;
+    height: 30px;
+    text-align: left;
+    padding-left: .5rem;
+    width: 100%;
+}
+
+.todoParaContainer{
+    width: 50%;
+}

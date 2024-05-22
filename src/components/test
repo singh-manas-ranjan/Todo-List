@@ -1,0 +1,99 @@
+import { useRef, useState } from "react";
+import styles from "./Todo.module.css";
+import TodoObject from "../assets/TodoObject";
+
+interface Props {
+  todos: TodoObject[];
+  onAddTodo: (text: string) => void;
+  onDeleteTodo: (todoId: number) => void;
+  onUpdateTodo: (id: number, text: string) => void;
+  zoomValue: number;
+}
+
+const Todos = ({
+  todos,
+  onAddTodo,
+  onDeleteTodo,
+}: Props) => {
+  const [enabledId, setEnabledId] = useState(-1);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (todoRef.current === null) {
+      return;
+    }
+    onAddTodo(todoRef.current.value);
+    todoRef.current.value = "";
+  };
+  console.log(zoomValue);
+
+  return (
+    <div className={styles.todoContainer} style={{ scale: `${zoomValue}` }}>
+      <h2>Todo List</h2>
+      <form action="#" onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.addTodoGroup}>
+          <input
+            type="text"
+            placeholder="Add todo..."
+            className={styles.todoInput}
+          ></input>
+          <button type="submit" className={styles.addTodoBtn}>
+            Add Todo
+          </button>
+        </div>
+        <input
+          type="text"
+          placeholder="Search todo..."
+          className={styles.searchTodoInput}
+          onChange={(e) => setSearchTodo(e.target.value)}
+          value={searchTodo}
+        ></input>
+      </form>
+
+      <table className={styles.table}>
+        <tbody>
+          {todos.map((todo) => (
+            <tr key={todo.id}>
+              <td key={todo.id}>
+                {enabledId === todo.id ? (
+                  <form
+                    action="#"
+                    onSubmit={() => {
+                     handleSubmit
+                    }}
+                  >
+                    <input
+                      type="text"
+                      key={todo.id}
+                      className={styles.todo}
+                      placeholder="edit todo..."
+                    />
+                  </form>
+                ) : ""}
+              </td>
+              <td>
+                <button
+                  className={[styles.button, styles.editBtn].join(" ")}
+                  onClick={() => setEnabledId(todo.id)}
+                >
+                  Edit
+                </button>
+              </td>
+              <td>
+                <button
+                  className={[styles.button, styles.deleteBtn].join(" ")}
+                  onClick={() => onDeleteTodo(todo.id)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+    </div>
+  );
+};
+
+export default Todos;
